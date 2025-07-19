@@ -66,7 +66,7 @@ export default function Events() {
       <Navbar onNavigate={handleNavigate} />
       <div>
         {!loading && convertedPins.length > 0 && (
-          <Map pins={convertedPins} center={center} />
+          <Map pins={convertedPins} center={center} details={[]} />
         )}
       </div>
       <Footer />
