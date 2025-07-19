@@ -12,11 +12,6 @@
 .historiesContainer::before {
   content: "";
   position: absolute;
-  inset: 0;
-  background-image: url("../../../public/assets/mapaHome2.png");
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: cover;
   opacity: 0.1;
   z-index: 0;
   min-height: 100vh;
