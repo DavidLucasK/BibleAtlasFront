@@ -1,0 +1,120 @@
+.splitSection {
+  display: flex;
+  width: 100%;
+  height: 600px;
+  overflow: hidden;
+}
+
+.splitLeft {
+  width: 50%;
+  background-image: url("/assets/BibleStudy4.jpg");
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.splitRight {
+  width: 50%;
+  background-image: url("/assets/BibleStudy.jpg");
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.splitRight img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.splitOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 3, 43, 0.904); /* Overlay escuro */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 12rem;
+  color: white;
+}
+
+.splitOverlay h2 {
+  font-size: clamp(0.5rem, 5vw, 2.5rem);
+  font-weight: 700;
+  margin-bottom: 1rem;
+  animation: fadeIn 1s forwards;
+}
+
+.splitOverlay p {
+  font-size: 1.1rem;
+  line-height: 1.5;
+  margin-bottom: 2rem;
+  color: #cfd3f7;
+  animation: fadeIn 1s forwards;
+}
+
+.teste {
+  display: inline-block;
+  background-color: #fff;
+  border-radius: 0.5rem;
+  max-width: fit-content;
+}
+
+.cta {
+  align-self: flex-start;
+  font-size: clamp(1rem, 10vw, 1.3rem);
+  padding: 1rem 2rem;
+  font-weight: 600;
+  background: linear-gradient(135deg, #090b28, #000c75 50%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text; /* Para compatibilidade extra */
+  color: transparent;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  text-decoration: none;
+}
+
+.teste:hover .icon {
+  transform: translateX(10px);
+}
+
+/* Garantir transição suave no ícone */
+.icon {
+  color: #071170;
+  transition: transform 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .splitLeft {
+    width: 100% !important;
+    background-image: url("/assets/BibleStudy4.jpg");
+    background-size: cover;
+    background-position: center;
+  }
+
+  .splitRight {
+    display: none;
+  }
+}

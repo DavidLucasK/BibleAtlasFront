@@ -1,0 +1,188 @@
+.homeContainer {
+}
+
+.hero {
+  position: relative; /* Necessário para posicionar o ::before */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 100dvw;
+  height: 95dvh;
+  overflow: hidden; /* Garante que o ::before não ultrapasse */
+}
+
+.backgroundVideo {
+  position: fixed;
+  width: 100dvw;
+  height: 125dvh;
+  object-fit: cover;
+  z-index: -2;
+  opacity: 0.3; /* Igual à imagem anterior */
+}
+
+.overlay {
+  animation: fadeIn 1.2s forwards;
+  letter-spacing: -0.04em;
+  margin: 7rem 0 0;
+  z-index: 1;
+}
+
+.title {
+  font-size: clamp(0.8rem, 10vw, 4rem);
+}
+
+.subtitle {
+  font-size: clamp(0.6rem, 5vw, 2rem);
+}
+
+.highlight,
+.highlight2 {
+  position: relative;
+  color: white;
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
+  display: inline-block; /* ESSENCIAL para limitar a largura da underline */
+}
+
+.highlight::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%);
+  bottom: 10px;
+  height: 3px;
+  width: 0%;
+  background: #ffffff;
+  border-radius: 2px;
+  animation: underlineExpand 0.5s ease-out forwards;
+  animation-delay: 1s;
+}
+
+.highlight2::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0px; /* distância abaixo do texto */
+  height: 3px;
+  width: 0%;
+  background: #ffffff;
+  border-radius: 2px;
+  animation: underlineExpand 0.5s ease-out forwards;
+  animation-delay: 1.7s;
+}
+
+/* Texto original dentro */
+.inner {
+  display: inline-block;
+  transition: opacity 0.7s ease;
+}
+
+/* Oculta o texto original ao hover */
+.highlight2:hover .inner {
+  opacity: 0;
+}
+
+/* Mostra o novo conteúdo */
+.highlight2::before {
+  content: "Jesus";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  color: white;
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.highlight2:hover::before {
+  opacity: 1;
+}
+
+.cta {
+  margin: 2rem 0 0;
+  font-size: clamp(1rem, 10vw, 1.3rem);
+  padding: 0.7rem 2rem;
+  background: linear-gradient(135deg, #191e6e, #0014c7);
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  color: white;
+  text-decoration: none;
+  border-radius: 0.5rem;
+  will-change: transform;
+  transition: background 0.3s ease, transform 0.3s ease;
+  animation: fadeIn 1s forwards;
+}
+
+.cta:hover {
+  cursor: pointer;
+  transform: scale(1.02);
+}
+
+/* Movimento do ícone ao passar o mouse */
+.cta:hover .icon {
+  transform: translateX(10px);
+}
+
+/* Garantir transição suave no ícone */
+.icon {
+  transition: transform 0.3s ease;
+}
+
+@media screen and (max-width: 1024px) {
+  .logoHome {
+    max-width: 600px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .logoHome {
+    max-width: 400px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .hero {
+    padding: 0 2rem;
+  }
+
+  .backgroundVideo {
+    position: fixed;
+    width: 100dvw;
+    height: 125dvh;
+    object-fit: cover;
+    z-index: -2;
+    opacity: 0.3; /* Igual à imagem anterior */
+  }
+
+  .highlight::after {
+    bottom: 7px; /* distância abaixo do texto */
+  }
+
+  .highlight2::after {
+    bottom: 2px; /* distância abaixo do texto */
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+}
+
+@keyframes underlineExpand {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 100%;
+  }
+}

@@ -1,0 +1,164 @@
+.mainContainer {
+  position: relative;
+}
+
+.mapContainer {
+  justify-self: center;
+  border-radius: 1rem;
+  width: 70dvw;
+  height: 80vh;
+  margin: 0 0 5rem;
+  pointer-events: auto;
+  z-index: 2;
+}
+
+.mainContainer::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("../../../public/assets/backgroundHome3.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  opacity: 0.3;
+  z-index: 0;
+  min-height: 100dvh;
+}
+
+.floatingTitle {
+  color: #fff;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
+    1px 1px 0 #000;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  font-size: clamp(0.8rem, 1vw, 1rem);
+  transform: translate(-50%, -250%);
+  left: 50%;
+  top: 0;
+  position: absolute;
+  white-space: nowrap;
+  pointer-events: none;
+  text-align: center;
+  max-width: 250px; /* ou o valor que desejar */
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.infoWindowContainer {
+  max-width: 400px;
+  min-width: 400px;
+  width: 100%;
+  min-height: 200px;
+  color: #000;
+  padding: 1rem;
+}
+
+.infoWindowTitle {
+  font-family: "Poppins";
+  font-size: clamp(1rem, 1vw, 2rem);
+  margin-top: -2.5rem;
+  background-color: var(--primary-color);
+  color: #fff;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  position: absolute;
+  max-width: 85%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  transition: all 0.3s ease-in-out;
+  z-index: 10;
+  cursor: pointer;
+}
+
+/* Quando passar o mouse, expande e mostra o texto completo */
+.infoWindowTitle:hover {
+  font-size: clamp(1rem, 1vw, 1.5rem);
+  white-space: normal;
+  height: auto;
+  overflow: visible;
+  text-overflow: unset;
+  word-break: break-word;
+  background-color: var(--primary-color); /* mantém a cor */
+}
+
+.infoWindowDesc {
+  font-family: "Poppins";
+  padding: 1rem;
+  margin: 1.5rem 0 0 0;
+  border-radius: 0.5rem;
+  min-height: 200px;
+  white-space: pre-line;
+}
+
+.fenceTitle {
+  font-weight: bold;
+  font-size: clamp(16pt, 1vw, 24pt);
+  color: #fff;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
+    1px 1px 0 #000;
+  white-space: nowrap;
+}
+
+.toggleFences {
+  position: absolute;
+  color: #000;
+  top: 1dvh;
+  right: 18dvw;
+  z-index: 1000;
+}
+
+.togglePins {
+  position: absolute;
+  color: #000;
+  top: 10dvh;
+  left: 15.5dvw;
+  z-index: 1000;
+}
+
+.toggleFences button,
+.togglePins button {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  padding: 6px 10px;
+  color: #000;
+  border-radius: 2px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+  font-family: "Poppins";
+}
+
+.toggleFences button:hover,
+.togglePins button:hover {
+  background-color: #dadada;
+}
+
+.pinsList {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  top: 14dvh;
+  left: 15.5dvw;
+  max-height: 300px;
+  overflow-y: auto;
+  z-index: 20;
+}
+
+.pinItem {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  padding: 6px 10px;
+  color: #000;
+  border-radius: 2px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+  font-family: "Poppins";
+}
+
+.pinItem:hover {
+  opacity: 0.9;
+}

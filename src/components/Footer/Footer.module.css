@@ -1,0 +1,24 @@
+.footerContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  background: linear-gradient(135deg, #090b28, #000c75, #090b28);
+  bottom: 0;
+  opacity: 0;
+  padding: 1rem 0 1.5rem;
+  position: relative;
+  z-index: 5;
+}
+
+.footerContainerScrolled {
+  opacity: 1;
+}
+
+.footerContainer p {
+  color: #fff;
+  cursor: default;
+  font-weight: 600;
+  margin: 0.5rem 0 0;
+}

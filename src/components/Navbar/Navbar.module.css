@@ -1,0 +1,210 @@
+.container {
+  position: fixed;
+  top: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60vw;
+  padding: 1rem;
+  display: flex;
+  height: 5rem;
+  justify-content: space-between;
+  align-items: center;
+  background-color: transparent;
+  z-index: 10;
+  gap: 1rem;
+  border: 2px solid transparent;
+  border-radius: 1rem;
+  transition: width 0.3s ease-in-out, top 0.3s linear,
+    background-color 0.3s ease-in-out, padding 0.3s ease-in-out;
+}
+.container::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  z-index: -1;
+}
+
+.scrolled {
+  display: flex;
+  justify-content: space-between;
+  width: 50vw;
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(135deg, #090b28, #000c75, #090b28);
+  top: 2rem;
+  height: 5rem;
+  padding: 1rem;
+}
+
+.scrolled::before {
+  opacity: 1;
+}
+
+.logoContainer {
+  display: flex;
+  margin: 0;
+}
+
+.logo {
+  width: auto;
+  height: clamp(1rem, 4vh, 3.5rem);
+  object-fit: contain;
+  cursor: pointer;
+  transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out;
+}
+
+.scrolled .logo {
+  transform: scale(0.8);
+}
+
+.logo:hover {
+  opacity: 0.7;
+}
+
+.bagulhos {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  list-style: none;
+  justify-content: center;
+
+  &.open {
+    display: none;
+  }
+}
+
+.botaoContribua {
+  position: relative;
+  background: linear-gradient(135deg, #fff);
+  color: #000;
+  border-radius: 1rem;
+  width: clamp(8rem, 15vw, 12rem);
+  height: clamp(2.5rem, 4vw, 3.5rem);
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.7rem;
+  font-size: clamp(0.2rem, 1vw, 12pt);
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  overflow: hidden;
+  transition: transform 0.3s ease-in-out;
+}
+
+.botaoContribua:hover {
+  transform: scale(1.03);
+}
+
+.btnMobile {
+  display: none;
+}
+
+.mapsBtn {
+  max-width: 24px;
+  height: auto;
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    flex-direction: row;
+  }
+
+  .logoContainer {
+    display: block;
+  }
+
+  .botaoContribua {
+    width: 10rem;
+    height: 3rem;
+    font-size: 0.9rem;
+  }
+
+  .btnMobile {
+    display: block;
+    background-color: transparent;
+    font-size: 24px;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+  }
+
+  .scrolled {
+    color: white;
+  }
+
+  .bagulhos {
+    display: none;
+
+    &.open {
+      display: flex;
+      flex-direction: column;
+      position: absolute;
+      top: 7.5rem;
+      left: 50%;
+      transform: translateX(-50%); /* Centraliza horizontalmente */
+      width: 100%;
+      border-top: 1px solid rgba(0, 0, 0, 0.062);
+      min-width: 490px;
+      max-width: 768px; /* Evita que fique muito largo */
+      background: rgb(255, 255, 255, 0.8);
+      padding: 20px;
+      align-items: center; /* Alinha os itens ao centro */
+      text-align: center;
+      border-bottom-left-radius: 20px;
+      border-bottom-right-radius: 20px;
+      box-shadow: 0px 20px 15px 5px rgba(0, 0, 0, 0.46);
+      backdrop-filter: blur(15px); /* Aplica o desfoque */
+      -webkit-backdrop-filter: blur(15px);
+    }
+  }
+
+  .btnDefault {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .botaoContribua {
+    display: none;
+  }
+
+  .btnMobile.scrolled {
+    display: block;
+    background-color: transparent;
+    font-size: 24px;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+  }
+
+  .logoContainer {
+    margin: 0 !important;
+  }
+
+  .scrolled .logo {
+    transform: scale(0.8);
+  }
+
+  .container {
+    width: 70vw;
+  }
+
+  .scrolled {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 70vw;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 3rem;
+    gap: 2rem;
+  }
+
+  .mapsBtn {
+    display: none;
+  }
+}

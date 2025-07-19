@@ -1,0 +1,92 @@
+.navItem {
+  position: relative;
+  padding: 10px;
+  font-size: clamp(10pt, 1vw, 14pt);
+  font-weight: 500;
+  color: inherit;
+  transition: color 0.2s ease-in-out, transform 0.2s ease-in-out,
+    opacity 0.3s ease-in-out;
+
+  &:hover,
+  &.active {
+    color: #0b50e4;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: -2px; /* Distância do texto */
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(135deg, #191e6e, #0014c7);
+    transition: width 0.2s ease-in-out, left 0.2s ease-in-out,
+      opacity 0.3s ease-in-out;
+  }
+
+  &:hover::after {
+    width: 100%;
+    left: 0;
+  }
+}
+
+/* Quando a navbar estiver com a classe scrolled */
+.navItemScrolled {
+  color: white;
+
+  &:hover {
+    color: white;
+  }
+
+  &.active {
+    color: white;
+  }
+
+  &.active::after {
+    width: 100%;
+    left: 0;
+  }
+
+  &::after {
+    background-color: white;
+  }
+
+  &.open {
+    color: black;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .navItem {
+    padding: 0 !important;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .navItem {
+    &:hover,
+    &.active {
+      color: white;
+    }
+
+    &.active::after {
+      width: 100%;
+      left: 0;
+    }
+  }
+
+  .navItemScrolled {
+    &:hover,
+    &.active {
+      color: white;
+    }
+
+    &.open {
+      color: white;
+    }
+
+    &::after {
+      background: #fff;
+    }
+  }
+}
